@@ -67,28 +67,42 @@ class _mainbottomnavigationbarState extends State<mainbottomnavigationbar> {
                             mainAxisSize: MainAxisSize.min,
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              Icon(
-                                FontAwesomeIcons.home,
-                                color: widget.check == 0
-                                    ?  HSLColor.fromColor(Colors.red).withLightness(0.8).toColor()
-                                    : Colors.grey,
-                                size:18,
+            //                   icon: Image.asset(
+            //   _selectedIndex == 0 ? 'assets/icons/home_active.png' : 'assets/icons/home_inactive.png',
+            //   width: 24,
+            //   height: 24,
+            // ),
+            // label: 'Home',
+          
+                              ImageIcon(
+                                AssetImage(widget.check == 0
+                                ? 'assets/icons/home_active.png' 
+                                : 'assets/icons/home_inactive.png',
                               ),
-                              const SizedBox(
-                                height: 6,
                               ),
+                              //   color: widget.check == 0
+                                
+                              //       ?  HSLColor.fromColor(const Color.fromARGB(255, 255, 255, 255)).withLightness(0.8).toColor()
+                              //       : Colors.grey,
+                              //   size:18,
+                              // ),
 
-                              Text(
-                                "home",
-                                style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                  color: widget.check == 0
-                                      ? HSLColor.fromColor(Colors.red).withLightness(0.8).toColor()
-                                      : Colors.grey,
-                                ),
-                              ),
+                              // const SizedBox(
+                              //   height: 6,
+                              // ),
+
+                              // Text(
+                              //   "Home",
+                              //   style: TextStyle(
+                              //     fontFamily: 'Roboto',
+                              //     fontWeight: FontWeight.bold,
+                              //     fontSize: 12,
+                              //     color: widget.check == 0
+                              //         ? HSLColor.fromColor(Colors.red).withLightness(0.8).toColor()
+                              //         : Colors.grey,
+                              //   ),
+                              // ),
+                        
                             ],
                           ),
                         ),
@@ -106,8 +120,11 @@ class _mainbottomnavigationbarState extends State<mainbottomnavigationbar> {
                             mainAxisSize: MainAxisSize.min,
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              Icon(
-                                FontAwesomeIcons.creditCard,
+                              ImageIcon(
+                                AssetImage(widget.check == 1 
+                                ? 'assets/icons/cards_active.png' 
+                                : 'assets/icons/cards_inactive.png'
+                              ),
                                 color: widget.check == 1
                                     ?   HSLColor.fromColor(Colors.red).withLightness(0.8).toColor()
                                     : Colors.grey,
@@ -117,7 +134,7 @@ class _mainbottomnavigationbarState extends State<mainbottomnavigationbar> {
                                 height: 6,
                               ),
                               Text(
-                                "cards",
+                                "Cards",
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.bold,
@@ -160,15 +177,18 @@ class _mainbottomnavigationbarState extends State<mainbottomnavigationbar> {
                         child: InkWell(
                           onTap: () {
                             setBottomBarIndex(widget.check);
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>My_Money()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const My_Money()));
 
                           },
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: <Widget>[
-                              Icon(
-                                FontAwesomeIcons.moneyBillWave,
+                              ImageIcon(
+                                AssetImage(widget.check == 2 
+                                ? 'assets/icons/pay_active.png' 
+                                : 'assets/icons/pay_inactive.png'
+                              ),
                                 color: widget.check == 2
                                     ?   HSLColor.fromColor(Colors.red).withLightness(0.8).toColor()
                                     : Colors.grey,
@@ -178,7 +198,7 @@ class _mainbottomnavigationbarState extends State<mainbottomnavigationbar> {
                                 height: 6,
                               ),
                               Text(
-                                "money",
+                                "Pay",
                                 style: TextStyle(
                                   fontFamily: 'Roboto',
                                   fontWeight: FontWeight.bold,

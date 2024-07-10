@@ -1,13 +1,16 @@
-import 'dart:ui';
-
 //import 'package:clay_containers/widgets/clay_container.dart';
+import 'package:bankui/Utils/elevated.dart';
+import 'package:bankui/Utils/floatingTilted.dart';
 import 'package:bankui/screens/remotecontrol.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bankui/Data/bottomnavigationbar.dart';
 import 'package:bankui/Data/constants.dart';
 import 'package:bankui/screens/notifications.dart';
 import 'package:bankui/screens/person_settings.dart';
+import 'package:neopop/utils/constants.dart';
+import 'package:neopop/widgets/buttons/neopop_tilted_button/neopop_tilted_button.dart';
 
 //class needs to extend StatefulWidget since we need to make changes to the bottom app bar according to the user clicks
 class Home extends StatefulWidget {
@@ -18,6 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
+  
   //call this method on click of each bottom app bar item to update the screen
 
   @override
@@ -388,33 +392,46 @@ class HomeState extends State<Home> {
                                                     fontWeight:
                                                     FontWeight.bold),
                                               ),
-                                              ElevatedButton(
-                                                style: ButtonStyle(
-                                                    backgroundColor:
-                                                    MaterialStateProperty
-                                                        .all(Colors.black),
-                                                    textStyle:
-                                                    MaterialStateProperty
-                                                        .all(const TextStyle(
-                                                        fontSize: 18)),
-                                                    shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                          borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
-                                                          //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                        ))),
-                                                child: const Text('Pay now',
-                                                  style: TextStyle(
-                                                      wordSpacing: .5,
-                                                      //letterSpacing: .5,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 14
-                                                  ),
+                                              FloatingTiltedButton(
+                                                isFloating: true,
+                                                onTapUp: () => HapticFeedback.vibrate(),
+                                                onTapDown: () => HapticFeedback.vibrate(),
+                                                decoration: const NeoPopTiltedButtonDecoration(
+                                                  color: Color.fromRGBO(255, 235, 52, 1),
+                                                  plunkColor: Color.fromRGBO(255, 235, 52, 1),
+                                                  shadowColor: Color.fromRGBO(36, 36, 36, 1),
                                                 ),
-                                                onPressed: () {},
-                                              ),
+                                                padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0), svgAssetPath: '', label: 'Pay Now',
+                                                ),
+                                             
+                                              // ElevatedButton(
+                                              //   style: ButtonStyle(
+                                              //       backgroundColor:
+                                              //       MaterialStateProperty
+                                              //           .all(Colors.black),
+                                              //       textStyle:
+                                              //       MaterialStateProperty
+                                              //           .all(const TextStyle(
+                                              //           fontSize: 18)),
+                                              //       shape: MaterialStateProperty
+                                              //           .all<RoundedRectangleBorder>(
+                                              //           RoundedRectangleBorder(
+                                              //             borderRadius:
+                                              //             BorderRadius.circular(
+                                              //                 18.0),
+                                              //             //side: BorderSide(color: Colors.teal, width: 2.0)
+                                              //           ))),
+                                              //   child: const Text('Pay now',
+                                              //     style: TextStyle(
+                                              //         wordSpacing: .5,
+                                              //         //letterSpacing: .5,
+                                              //         fontWeight: FontWeight.bold,
+                                              //         fontSize: 14
+                                              //     ),
+                                              //   ),
+                                              //   onPressed: () {},
+                                              // ),
+                                             
                                             ],
                                           ),
                                         ),
@@ -533,33 +550,42 @@ class HomeState extends State<Home> {
                                               left: 70, top: 20),
                                           child: Column(
                                             children: [
-                                              ElevatedButton(
-                                                style: ButtonStyle(
-                                                    backgroundColor:
-                                                    MaterialStateProperty
-                                                        .all(Colors.black),
-                                                    textStyle:
-                                                    MaterialStateProperty
-                                                        .all(const TextStyle(
-                                                        fontSize: 18)),
-                                                    shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                          borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
-                                                          //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                        ))),
-                                                child: const Text("Activate",
-                                                  style: TextStyle(
-                                                      wordSpacing: .5,
-                                                      //letterSpacing: .5,
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 14
-                                                  ),
-                                                ),
-                                                onPressed: () {},
-                                              ),
+                                               ElevatedNeoPop(
+                                                color: Colors.black,
+                                                onTapUp: () => HapticFeedback.vibrate(),
+                                                onTapDown: () => HapticFeedback.vibrate(),
+                                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                                                label: "Activate",
+                                                textStyle: const TextStyle(color: Colors.white, fontSize: 16),
+                                                )
+                                              
+                                              // ElevatedButton(
+                                              //   style: ButtonStyle(
+                                              //       backgroundColor:
+                                              //       MaterialStateProperty
+                                              //           .all(Colors.black),
+                                              //       textStyle:
+                                              //       MaterialStateProperty
+                                              //           .all(const TextStyle(
+                                              //           fontSize: 18)),
+                                              //       shape: MaterialStateProperty
+                                              //           .all<RoundedRectangleBorder>(
+                                              //           RoundedRectangleBorder(
+                                              //             borderRadius:
+                                              //             BorderRadius.circular(
+                                              //                 18.0),
+                                              //             //side: BorderSide(color: Colors.teal, width: 2.0)
+                                              //           ))),
+                                              //   child: const Text("Activate",
+                                              //     style: TextStyle(
+                                              //         wordSpacing: .5,
+                                              //         //letterSpacing: .5,
+                                              //         fontWeight: FontWeight.bold,
+                                              //         fontSize: 14
+                                              //     ),
+                                              //   ),
+                                              //   onPressed: () {},
+                                              // ),
                                             ],
                                           ),
                                         ),
@@ -678,33 +704,41 @@ class HomeState extends State<Home> {
                                               left: 85, top: 20),
                                           child: Column(
                                             children: [
-                                              ElevatedButton(
-                                                style: ButtonStyle(
-                                                    backgroundColor:
-                                                    MaterialStateProperty
-                                                        .all(Colors.black),
-                                                    textStyle:
-                                                    MaterialStateProperty
-                                                        .all(const TextStyle(
-                                                        fontSize: 18)),
-                                                    shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                        RoundedRectangleBorder(
-                                                          borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
-                                                          //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                        ))),
-                                                child: const Text('Activate',
-                                                  style: TextStyle(
-                                                      wordSpacing: .5,
+                                              ElevatedNeoPop(
+                                                color: Colors.black,
+                                                onTapUp: () => HapticFeedback.vibrate(),
+                                                onTapDown: () => HapticFeedback.vibrate(),
+                                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                                                label: "Activate",
+                                                textStyle: const TextStyle(color: Colors.white, fontSize: 16),
+                                                )
+                                              // ElevatedButton(
+                                              //   style: ButtonStyle(
+                                              //       backgroundColor:
+                                              //       MaterialStateProperty
+                                              //           .all(Colors.black),
+                                              //       textStyle:
+                                              //       MaterialStateProperty
+                                              //           .all(const TextStyle(
+                                              //           fontSize: 18)),
+                                              //       shape: MaterialStateProperty
+                                              //           .all<RoundedRectangleBorder>(
+                                              //           RoundedRectangleBorder(
+                                              //             borderRadius:
+                                              //             BorderRadius.circular(
+                                              //                 18.0),
+                                              //             //side: BorderSide(color: Colors.teal, width: 2.0)
+                                              //           ))),
+                                              //   child: const Text('Activate',
+                                              //     style: TextStyle(
+                                              //         wordSpacing: .5,
 
-                                                      fontWeight: FontWeight.bold,
-                                                      fontSize: 14
-                                                  ),
-                                                ),
-                                                onPressed: () {},
-                                              ),
+                                              //         fontWeight: FontWeight.bold,
+                                              //         fontSize: 14
+                                              //     ),
+                                              //   ),
+                                              //   onPressed: () {},
+                                              // ),
                                             ],
                                           ),
                                         ),
