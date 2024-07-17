@@ -38,6 +38,9 @@ dependencies:
   clay_containers: ^0.3.4
   font_awesome_flutter: ^10.7.0
   neopop: ^1.0.2
+  auth0_flutter: ^1.7.2
+  supabase_flutter: ^2.0.0
+
   
 
 dev_dependencies:

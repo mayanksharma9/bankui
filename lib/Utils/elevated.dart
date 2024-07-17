@@ -17,7 +17,7 @@ class ElevatedNeoPop extends StatelessWidget {
     required this.onTapDown,
     required this.padding,
     required this.label,
-    this.textStyle,
+    this.textStyle, required VoidCallback onPressed,
   }) : super(key: key);
 
   @override

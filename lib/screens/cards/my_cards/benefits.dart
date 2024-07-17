@@ -1,5 +1,7 @@
+import 'package:bankui/Utils/elevated.dart';
 import 'package:clay_containers/widgets/clay_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class benefits extends StatefulWidget {
   const benefits({Key? key}) : super(key: key);
@@ -376,34 +378,16 @@ class _maxState extends State<benefits> {
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                                left: 20, top: 30),
-                                            child: ElevatedButton(
-                                              style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          Colors.black),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          const TextStyle(
-                                                              fontSize: 18)),
-                                                  shape: MaterialStateProperty
-                                                      .all<RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            18.0),
-                                                    //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                  ))),
-                                              child: const Text(
-                                                'View all',
-                                                style: TextStyle(
-                                                    wordSpacing: .5,
-                                                    //letterSpacing: .5,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 14),
-                                              ),
-                                              onPressed: () {},
-                                            ),
+                                                left: 20, top: 30, right: 20),
+                                            child: ElevatedNeoPop(
+                    color: Colors.orange,
+                    onTapUp: () => HapticFeedback.vibrate(),
+                    onTapDown: () => HapticFeedback.vibrate(),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    label: "View all",
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 16),
+                    onPressed: (){},
+                  ),
                                           ),
                                         ],
                                       ),
@@ -774,34 +758,16 @@ class _maxState extends State<benefits> {
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.only(
-                                                left: 20, top: 30),
-                                            child: ElevatedButton(
-                                              style: ButtonStyle(
-                                                  backgroundColor:
-                                                      MaterialStateProperty.all(
-                                                          Colors.black),
-                                                  textStyle:
-                                                      MaterialStateProperty.all(
-                                                          const TextStyle(
-                                                              fontSize: 18)),
-                                                  shape: MaterialStateProperty
-                                                      .all<RoundedRectangleBorder>(
-                                                          RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            18.0),
-                                                    //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                  ))),
-                                              child: const Text(
-                                                'View all',
-                                                style: TextStyle(
-                                                    wordSpacing: .5,
-                                                    //letterSpacing: .5,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 14),
-                                              ),
-                                              onPressed: () {},
-                                            ),
+                                                left: 20, top: 30, right: 20),
+                                            child: ElevatedNeoPop(
+                    color: Colors.orange,
+                    onTapUp: () => HapticFeedback.vibrate(),
+                    onTapDown: () => HapticFeedback.vibrate(),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                    label: "View all",
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 16),
+                    onPressed: (){},
+                  ),
                                           ),
                                         ],
                                       ),

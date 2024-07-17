@@ -1,16 +1,14 @@
+import 'dart:ui';
+
 //import 'package:clay_containers/widgets/clay_container.dart';
-import 'package:bankui/Utils/elevated.dart';
-import 'package:bankui/Utils/floatingTilted.dart';
+import 'package:bankui/Utils/duecardlists.dart';
 import 'package:bankui/screens/remotecontrol.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bankui/Data/bottomnavigationbar.dart';
 import 'package:bankui/Data/constants.dart';
 import 'package:bankui/screens/notifications.dart';
 import 'package:bankui/screens/person_settings.dart';
-import 'package:neopop/utils/constants.dart';
-import 'package:neopop/widgets/buttons/neopop_tilted_button/neopop_tilted_button.dart';
 
 //class needs to extend StatefulWidget since we need to make changes to the bottom app bar according to the user clicks
 class Home extends StatefulWidget {
@@ -21,7 +19,6 @@ class Home extends StatefulWidget {
 }
 
 class HomeState extends State<Home> {
-  
   //call this method on click of each bottom app bar item to update the screen
 
   @override
@@ -226,536 +223,507 @@ class HomeState extends State<Home> {
                   height: 5,
                   thickness: 10,
                 ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          const Text(
-                            "hello, Shawaiz",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontStyle: FontStyle.normal,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "here are today's",
-                            style: TextStyle(
-                              letterSpacing: .5,
-                              wordSpacing: .5,
-                              fontWeight: FontWeight.bold,
-                              color:Colors.grey,
-                              fontStyle: FontStyle.normal,
-                              // fontSize: 20,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          const Text(
-                            "recommended actions for you",
-                            style: TextStyle(
-                              letterSpacing: .5,
-                              wordSpacing: .5,
-                              fontWeight: FontWeight.bold,
-                              color:Colors.grey,
-                              fontStyle: FontStyle.normal,
-                              // fontSize: 20,
-                              // fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          Container(
-                            height: 175,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Constants.softHighlightColor,
-                                      offset: const Offset(-10, -10),
-                                      spreadRadius: 0,
-                                      blurRadius: 10),
-                                  BoxShadow(
-                                      color: Constants.softShadowColor,
-                                      offset: const Offset(10, 10),
-                                      spreadRadius: 0,
-                                      blurRadius: 10)
-                                ]),
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                const EdgeInsets.only(left: 20, top: 22),
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.stretch,
-                                  children: <Widget>[
-                                    const Text(
-                                      "clear your upcoming bills to",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
+                const Expanded(
+                  child: DueCardList(),
+                  // child: SingleChildScrollView(
+                  //   child: Padding(
+                  //     padding: const EdgeInsets.only(left: 20, right: 20),
+                  //     child: Column(
+                  //       crossAxisAlignment: CrossAxisAlignment.stretch,
+                  //       children: <Widget>[
+                  //         const SizedBox(
+                  //           height: 40,
+                  //         ),
+                  //         const Text(
+                  //           "hello, Shawaiz",
+                  //           style: TextStyle(
+                  //             color: Colors.white,
+                  //             fontStyle: FontStyle.normal,
+                  //             fontSize: 20,
+                  //             fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //         const SizedBox(
+                  //           height: 10,
+                  //         ),
+                  //         const Text(
+                  //           "here are today's",
+                  //           style: TextStyle(
+                  //             letterSpacing: .5,
+                  //             wordSpacing: .5,
+                  //             fontWeight: FontWeight.bold,
+                  //             color:Colors.grey,
+                  //             fontStyle: FontStyle.normal,
+                  //             // fontSize: 20,
+                  //             // fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //         const SizedBox(
+                  //           height: 10,
+                  //         ),
+                  //         const Text(
+                  //           "recommended actions for you",
+                  //           style: TextStyle(
+                  //             letterSpacing: .5,
+                  //             wordSpacing: .5,
+                  //             fontWeight: FontWeight.bold,
+                  //             color:Colors.grey,
+                  //             fontStyle: FontStyle.normal,
+                  //             // fontSize: 20,
+                  //             // fontWeight: FontWeight.bold,
+                  //           ),
+                  //         ),
+                  //         const SizedBox(
+                  //           height: 40,
+                  //         ),
+                  //         Container(
+                  //           height: 175,
+                  //           width: 100,
+                  //           decoration: BoxDecoration(
+                  //               borderRadius:
+                  //               const BorderRadius.all(Radius.circular(20)),
+                  //               color: Colors.white,
+                  //               boxShadow: [
+                  //                 BoxShadow(
+                  //                     color: Constants.softHighlightColor,
+                  //                     offset: const Offset(-10, -10),
+                  //                     spreadRadius: 0,
+                  //                     blurRadius: 10),
+                  //                 BoxShadow(
+                  //                     color: Constants.softShadowColor,
+                  //                     offset: const Offset(10, 10),
+                  //                     spreadRadius: 0,
+                  //                     blurRadius: 10)
+                  //               ]),
+                  //           child: Container(
+                  //             child: Padding(
+                  //               padding:
+                  //               const EdgeInsets.only(left: 20, top: 22),
+                  //               child: Column(
+                  //                 crossAxisAlignment:
+                  //                 CrossAxisAlignment.stretch,
+                  //                 children: <Widget>[
+                  //                   const Text(
+                  //                     "clear your upcoming bills to",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
 
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Text(
-                                      "earn coins",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 42,
-                                          width: 42,
-                                          margin:
-                                          const EdgeInsets.only(left: 5, top: 35),
-                                          padding: const EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.circular(5),
-                                              border: Border.all(
-                                                  width: 0.5,
-                                                  color: Colors.black54)),
-                                          child: const Icon(
-                                            Icons.add_box_outlined,
-                                            color: Colors.black87,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        const Column(
-                                          children: [
-                                            SizedBox(
-                                              height: 25,
-                                            ),
-                                            Text(
-                                              "HDFC Bank",
-                                              style: TextStyle(
-                                                  color: Colors.black87,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              "xxxxxx 7818",
-                                              style: TextStyle(
-                                                  color: Colors.black38,
-                                                  fontSize: 13,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Text(
-                                              "DUE IN 7 DAYS",
-                                              style: TextStyle(
-                                                  letterSpacing: .3,
-                                                  wordSpacing: .3,
-                                                  color: Colors.redAccent,
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 60, top: 20),
-                                          child: Column(
-                                            children: [
-                                              const Text(
-                                                "Rs.1,82,981",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 15,
-                                                    fontWeight:
-                                                    FontWeight.bold),
-                                              ),
-                                              FloatingTiltedButton(
-                                                isFloating: true,
-                                                onTapUp: () => HapticFeedback.vibrate(),
-                                                onTapDown: () => HapticFeedback.vibrate(),
-                                                decoration: const NeoPopTiltedButtonDecoration(
-                                                  color: Color.fromRGBO(255, 235, 52, 1),
-                                                  plunkColor: Color.fromRGBO(255, 235, 52, 1),
-                                                  shadowColor: Color.fromRGBO(36, 36, 36, 1),
-                                                ),
-                                                padding: const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 10.0), svgAssetPath: '', label: 'Pay Now',
-                                                ),
-                                             
-                                              // ElevatedButton(
-                                              //   style: ButtonStyle(
-                                              //       backgroundColor:
-                                              //       MaterialStateProperty
-                                              //           .all(Colors.black),
-                                              //       textStyle:
-                                              //       MaterialStateProperty
-                                              //           .all(const TextStyle(
-                                              //           fontSize: 18)),
-                                              //       shape: MaterialStateProperty
-                                              //           .all<RoundedRectangleBorder>(
-                                              //           RoundedRectangleBorder(
-                                              //             borderRadius:
-                                              //             BorderRadius.circular(
-                                              //                 18.0),
-                                              //             //side: BorderSide(color: Colors.teal, width: 2.0)
-                                              //           ))),
-                                              //   child: const Text('Pay now',
-                                              //     style: TextStyle(
-                                              //         wordSpacing: .5,
-                                              //         //letterSpacing: .5,
-                                              //         fontWeight: FontWeight.bold,
-                                              //         fontSize: 14
-                                              //     ),
-                                              //   ),
-                                              //   onPressed: () {},
-                                              // ),
-                                             
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   const Text(
+                  //                     "earn coins",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   Row(
+                  //                     children: [
+                  //                       Container(
+                  //                         height: 42,
+                  //                         width: 42,
+                  //                         margin:
+                  //                         const EdgeInsets.only(left: 5, top: 35),
+                  //                         padding: const EdgeInsets.all(5),
+                  //                         decoration: BoxDecoration(
+                  //                             borderRadius:
+                  //                             BorderRadius.circular(5),
+                  //                             border: Border.all(
+                  //                                 width: 0.5,
+                  //                                 color: Colors.black54)),
+                  //                         child: const Icon(
+                  //                           Icons.add_box_outlined,
+                  //                           color: Colors.black87,
+                  //                         ),
+                  //                       ),
+                  //                       const SizedBox(
+                  //                         width: 5,
+                  //                       ),
+                  //                       const Column(
+                  //                         children: [
+                  //                           SizedBox(
+                  //                             height: 25,
+                  //                           ),
+                  //                           Text(
+                  //                             "HDFC Bank",
+                  //                             style: TextStyle(
+                  //                                 color: Colors.black87,
+                  //                                 fontSize: 16,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                           Text(
+                  //                             "xxxxxx 7818",
+                  //                             style: TextStyle(
+                  //                                 color: Colors.black38,
+                  //                                 fontSize: 13,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                           SizedBox(
+                  //                             height: 20,
+                  //                           ),
+                  //                           Text(
+                  //                             "DUE IN 7 DAYS",
+                  //                             style: TextStyle(
+                  //                                 letterSpacing: .3,
+                  //                                 wordSpacing: .3,
+                  //                                 color: Colors.redAccent,
+                  //                                 fontSize: 12,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: const EdgeInsets.only(
+                  //                             left: 60, top: 20),
+                  //                         child: Column(
+                  //                           children: [
+                  //                             const Text(
+                  //                               "Rs.1,82,981",
+                  //                               style: TextStyle(
+                  //                                   color: Colors.black,
+                  //                                   fontSize: 15,
+                  //                                   fontWeight:
+                  //                                   FontWeight.bold),
+                  //                             ),
+                  //                             ElevatedButton(
+                  //                               style: ButtonStyle(
+                  //                                   backgroundColor:
+                  //                                   MaterialStateProperty
+                  //                                       .all(Colors.black),
+                  //                                   textStyle:
+                  //                                   MaterialStateProperty
+                  //                                       .all(const TextStyle(
+                  //                                       fontSize: 18)),
+                  //                                   shape: MaterialStateProperty
+                  //                                       .all<RoundedRectangleBorder>(
+                  //                                       RoundedRectangleBorder(
+                  //                                         borderRadius:
+                  //                                         BorderRadius.circular(
+                  //                                             18.0),
+                  //                                         //side: BorderSide(color: Colors.teal, width: 2.0)
+                  //                                       ))),
+                  //                               child: const Text('Pay now',
+                  //                                 style: TextStyle(
+                  //                                     wordSpacing: .5,
+                  //                                     //letterSpacing: .5,
+                  //                                     fontWeight: FontWeight.bold,
+                  //                                     fontSize: 14
+                  //                                 ),
+                  //                               ),
+                  //                               onPressed: () {},
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         const SizedBox(
+                  //           height: 20,
+                  //         ),
 
-                          //Second Card
+                  //         //Second Card
 
-                          Container(
-                            height: 175,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Constants.softHighlightColor,
-                                      offset: const Offset(-10, -10),
-                                      spreadRadius: 0,
-                                      blurRadius: 10),
-                                  BoxShadow(
-                                      color: Constants.softShadowColor,
-                                      offset: const Offset(10, 10),
-                                      spreadRadius: 0,
-                                      blurRadius: 10)
-                                ]),
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                const EdgeInsets.only(left: 20, top: 22),
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.stretch,
-                                  children: <Widget>[
-                                    const Text(
-                                      "activate your card to",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Text(
-                                      "make your first payment",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Text(
-                                      "and earn coins",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 42,
-                                          width: 42,
-                                          margin:
-                                          const EdgeInsets.only(left: 5, top: 35),
-                                          padding: const EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.circular(5),
-                                              border: Border.all(
-                                                  width: 0.5,
-                                                  color: Colors.black54)),
-                                          child: const Icon(
-                                            FontAwesomeIcons.university,
-                                            color: Colors.black87,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        const Column(
-                                          children: [
-                                            SizedBox(
-                                              height: 25,
-                                            ),
-                                            Text(
-                                              "ICICI Bank",
-                                              style: TextStyle(
-                                                  color: Colors.black87,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              "xxxx 1007",
-                                              style: TextStyle(
-                                                  color: Colors.black38,
-                                                  fontSize: 13,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 70, top: 20),
-                                          child: Column(
-                                            children: [
-                                               ElevatedNeoPop(
-                                                color: Colors.black,
-                                                onTapUp: () => HapticFeedback.vibrate(),
-                                                onTapDown: () => HapticFeedback.vibrate(),
-                                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                                                label: "Activate",
-                                                textStyle: const TextStyle(color: Colors.white, fontSize: 16),
-                                                )
-                                              
-                                              // ElevatedButton(
-                                              //   style: ButtonStyle(
-                                              //       backgroundColor:
-                                              //       MaterialStateProperty
-                                              //           .all(Colors.black),
-                                              //       textStyle:
-                                              //       MaterialStateProperty
-                                              //           .all(const TextStyle(
-                                              //           fontSize: 18)),
-                                              //       shape: MaterialStateProperty
-                                              //           .all<RoundedRectangleBorder>(
-                                              //           RoundedRectangleBorder(
-                                              //             borderRadius:
-                                              //             BorderRadius.circular(
-                                              //                 18.0),
-                                              //             //side: BorderSide(color: Colors.teal, width: 2.0)
-                                              //           ))),
-                                              //   child: const Text("Activate",
-                                              //     style: TextStyle(
-                                              //         wordSpacing: .5,
-                                              //         //letterSpacing: .5,
-                                              //         fontWeight: FontWeight.bold,
-                                              //         fontSize: 14
-                                              //     ),
-                                              //   ),
-                                              //   onPressed: () {},
-                                              // ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
+                  //         Container(
+                  //           height: 175,
+                  //           width: 100,
+                  //           decoration: BoxDecoration(
+                  //               borderRadius:
+                  //               const BorderRadius.all(Radius.circular(20)),
+                  //               color: Colors.white,
+                  //               boxShadow: [
+                  //                 BoxShadow(
+                  //                     color: Constants.softHighlightColor,
+                  //                     offset: const Offset(-10, -10),
+                  //                     spreadRadius: 0,
+                  //                     blurRadius: 10),
+                  //                 BoxShadow(
+                  //                     color: Constants.softShadowColor,
+                  //                     offset: const Offset(10, 10),
+                  //                     spreadRadius: 0,
+                  //                     blurRadius: 10)
+                  //               ]),
+                  //           child: Container(
+                  //             child: Padding(
+                  //               padding:
+                  //               const EdgeInsets.only(left: 20, top: 22),
+                  //               child: Column(
+                  //                 crossAxisAlignment:
+                  //                 CrossAxisAlignment.stretch,
+                  //                 children: <Widget>[
+                  //                   const Text(
+                  //                     "activate your card to",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   const Text(
+                  //                     "make your first payment",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   const Text(
+                  //                     "and earn coins",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   Row(
+                  //                     children: [
+                  //                       Container(
+                  //                         height: 42,
+                  //                         width: 42,
+                  //                         margin:
+                  //                         const EdgeInsets.only(left: 5, top: 35),
+                  //                         padding: const EdgeInsets.all(5),
+                  //                         decoration: BoxDecoration(
+                  //                             borderRadius:
+                  //                             BorderRadius.circular(5),
+                  //                             border: Border.all(
+                  //                                 width: 0.5,
+                  //                                 color: Colors.black54)),
+                  //                         child: const Icon(
+                  //                           FontAwesomeIcons.university,
+                  //                           color: Colors.black87,
+                  //                         ),
+                  //                       ),
+                  //                       const SizedBox(
+                  //                         width: 5,
+                  //                       ),
+                  //                       const Column(
+                  //                         children: [
+                  //                           SizedBox(
+                  //                             height: 25,
+                  //                           ),
+                  //                           Text(
+                  //                             "ICICI Bank",
+                  //                             style: TextStyle(
+                  //                                 color: Colors.black87,
+                  //                                 fontSize: 16,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                           Text(
+                  //                             "xxxx 1007",
+                  //                             style: TextStyle(
+                  //                                 color: Colors.black38,
+                  //                                 fontSize: 13,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: const EdgeInsets.only(
+                  //                             left: 70, top: 20),
+                  //                         child: Column(
+                  //                           children: [
+                  //                             ElevatedButton(
+                  //                               style: ButtonStyle(
+                  //                                   backgroundColor:
+                  //                                   MaterialStateProperty
+                  //                                       .all(Colors.black),
+                  //                                   textStyle:
+                  //                                   MaterialStateProperty
+                  //                                       .all(const TextStyle(
+                  //                                       fontSize: 18)),
+                  //                                   shape: MaterialStateProperty
+                  //                                       .all<RoundedRectangleBorder>(
+                  //                                       RoundedRectangleBorder(
+                  //                                         borderRadius:
+                  //                                         BorderRadius.circular(
+                  //                                             18.0),
+                  //                                         //side: BorderSide(color: Colors.teal, width: 2.0)
+                  //                                       ))),
+                  //                               child: const Text("Activate",
+                  //                                 style: TextStyle(
+                  //                                     wordSpacing: .5,
+                  //                                     //letterSpacing: .5,
+                  //                                     fontWeight: FontWeight.bold,
+                  //                                     fontSize: 14
+                  //                                 ),
+                  //                               ),
+                  //                               onPressed: () {},
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         const SizedBox(
+                  //           height: 20,
+                  //         ),
 
-                          //Third Card
+                  //         //Third Card
 
-                          Container(
-                            height: 175,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                const BorderRadius.all(Radius.circular(20)),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: Constants.softHighlightColor,
-                                      offset: const Offset(-10, -10),
-                                      spreadRadius: 0,
-                                      blurRadius: 10),
-                                  BoxShadow(
-                                      color: Constants.softShadowColor,
-                                      offset: const Offset(10, 10),
-                                      spreadRadius: 0,
-                                      blurRadius: 10)
-                                ]),
-                            child: Container(
-                              child: Padding(
-                                padding:
-                                const EdgeInsets.only(left: 20, top: 22),
-                                child: Column(
-                                  crossAxisAlignment:
-                                  CrossAxisAlignment.stretch,
-                                  children: <Widget>[
-                                    const Text(
-                                      "activate your card to",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Text(
-                                      "make your first payment",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const Text(
-                                      "and earn coins",
-                                      style: TextStyle(
-                                          wordSpacing: .5,
-                                          letterSpacing: .5,
-                                          color: Colors.black87,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 42,
-                                          width: 42,
-                                          margin:
-                                          const EdgeInsets.only(left: 5, top: 35),
-                                          padding: const EdgeInsets.all(5),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.circular(5),
-                                              border: Border.all(
-                                                  width: 0.5,
-                                                  color: Colors.black54)),
-                                          child: const Icon(
-                                            FontAwesomeIcons.addressCard,
-                                            color: Colors.black87,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 5,
-                                        ),
-                                        const Column(
-                                          children: [
-                                            SizedBox(
-                                              height: 25,
-                                            ),
-                                            Text(
-                                              "Amex",
-                                              style: TextStyle(
-                                                  color: Colors.black87,
-                                                  fontSize: 16,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            Text(
-                                              "xxxx 1002",
-                                              style: TextStyle(
-                                                  color: Colors.black38,
-                                                  fontSize: 13,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 85, top: 20),
-                                          child: Column(
-                                            children: [
-                                              ElevatedNeoPop(
-                                                color: Colors.black,
-                                                onTapUp: () => HapticFeedback.vibrate(),
-                                                onTapDown: () => HapticFeedback.vibrate(),
-                                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-                                                label: "Activate",
-                                                textStyle: const TextStyle(color: Colors.white, fontSize: 16),
-                                                )
-                                              // ElevatedButton(
-                                              //   style: ButtonStyle(
-                                              //       backgroundColor:
-                                              //       MaterialStateProperty
-                                              //           .all(Colors.black),
-                                              //       textStyle:
-                                              //       MaterialStateProperty
-                                              //           .all(const TextStyle(
-                                              //           fontSize: 18)),
-                                              //       shape: MaterialStateProperty
-                                              //           .all<RoundedRectangleBorder>(
-                                              //           RoundedRectangleBorder(
-                                              //             borderRadius:
-                                              //             BorderRadius.circular(
-                                              //                 18.0),
-                                              //             //side: BorderSide(color: Colors.teal, width: 2.0)
-                                              //           ))),
-                                              //   child: const Text('Activate',
-                                              //     style: TextStyle(
-                                              //         wordSpacing: .5,
+                  //         Container(
+                  //           height: 175,
+                  //           width: 100,
+                  //           decoration: BoxDecoration(
+                  //               borderRadius:
+                  //               const BorderRadius.all(Radius.circular(20)),
+                  //               color: Colors.white,
+                  //               boxShadow: [
+                  //                 BoxShadow(
+                  //                     color: Constants.softHighlightColor,
+                  //                     offset: const Offset(-10, -10),
+                  //                     spreadRadius: 0,
+                  //                     blurRadius: 10),
+                  //                 BoxShadow(
+                  //                     color: Constants.softShadowColor,
+                  //                     offset: const Offset(10, 10),
+                  //                     spreadRadius: 0,
+                  //                     blurRadius: 10)
+                  //               ]),
+                  //           child: Container(
+                  //             child: Padding(
+                  //               padding:
+                  //               const EdgeInsets.only(left: 20, top: 22),
+                  //               child: Column(
+                  //                 crossAxisAlignment:
+                  //                 CrossAxisAlignment.stretch,
+                  //                 children: <Widget>[
+                  //                   const Text(
+                  //                     "activate your card to",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   const Text(
+                  //                     "make your first payment",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   const Text(
+                  //                     "and earn coins",
+                  //                     style: TextStyle(
+                  //                         wordSpacing: .5,
+                  //                         letterSpacing: .5,
+                  //                         color: Colors.black87,
+                  //                         fontSize: 16,
+                  //                         fontWeight: FontWeight.bold),
+                  //                   ),
+                  //                   Row(
+                  //                     children: [
+                  //                       Container(
+                  //                         height: 42,
+                  //                         width: 42,
+                  //                         margin:
+                  //                         const EdgeInsets.only(left: 5, top: 35),
+                  //                         padding: const EdgeInsets.all(5),
+                  //                         decoration: BoxDecoration(
+                  //                             borderRadius:
+                  //                             BorderRadius.circular(5),
+                  //                             border: Border.all(
+                  //                                 width: 0.5,
+                  //                                 color: Colors.black54)),
+                  //                         child: const Icon(
+                  //                           FontAwesomeIcons.addressCard,
+                  //                           color: Colors.black87,
+                  //                         ),
+                  //                       ),
+                  //                       const SizedBox(
+                  //                         width: 5,
+                  //                       ),
+                  //                       const Column(
+                  //                         children: [
+                  //                           SizedBox(
+                  //                             height: 25,
+                  //                           ),
+                  //                           Text(
+                  //                             "Amex",
+                  //                             style: TextStyle(
+                  //                                 color: Colors.black87,
+                  //                                 fontSize: 16,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                           Text(
+                  //                             "xxxx 1002",
+                  //                             style: TextStyle(
+                  //                                 color: Colors.black38,
+                  //                                 fontSize: 13,
+                  //                                 fontWeight: FontWeight.bold),
+                  //                           ),
+                  //                         ],
+                  //                       ),
+                  //                       Padding(
+                  //                         padding: const EdgeInsets.only(
+                  //                             left: 85, top: 20),
+                  //                         child: Column(
+                  //                           children: [
+                  //                             ElevatedButton(
+                  //                               style: ButtonStyle(
+                  //                                   backgroundColor:
+                  //                                   MaterialStateProperty
+                  //                                       .all(Colors.black),
+                  //                                   textStyle:
+                  //                                   MaterialStateProperty
+                  //                                       .all(const TextStyle(
+                  //                                       fontSize: 18)),
+                  //                                   shape: MaterialStateProperty
+                  //                                       .all<RoundedRectangleBorder>(
+                  //                                       RoundedRectangleBorder(
+                  //                                         borderRadius:
+                  //                                         BorderRadius.circular(
+                  //                                             18.0),
+                  //                                         //side: BorderSide(color: Colors.teal, width: 2.0)
+                  //                                       ))),
+                  //                               child: const Text('Activate',
+                  //                                 style: TextStyle(
+                  //                                     wordSpacing: .5,
 
-                                              //         fontWeight: FontWeight.bold,
-                                              //         fontSize: 14
-                                              //     ),
-                                              //   ),
-                                              //   onPressed: () {},
-                                              // ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 80,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  //                                     fontWeight: FontWeight.bold,
+                  //                                     fontSize: 14
+                  //                                 ),
+                  //                               ),
+                  //                               onPressed: () {},
+                  //                             ),
+                  //                           ],
+                  //                         ),
+                  //                       ),
+                  //                     ],
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ),
+                  //         const SizedBox(
+                  //           height: 80,
+                  //         ),
+                  //       ],
+                  //     ),
+                  //   ),
+                  // ),
                 ),
               ],
             ),

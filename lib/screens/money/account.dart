@@ -1,5 +1,7 @@
+import 'package:bankui/Utils/elevated.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Money_Account extends StatefulWidget {
   const Money_Account({Key? key}) : super(key: key);
@@ -257,38 +259,17 @@ class _Money_AccountState extends State<Money_Account> {
                                                     height: 15,
                                                   ),
                                                   Container(
-                                                    width:130,
+                                                    width:150,
                                                     height:35,
-                                                    child: ElevatedButton(
-
-                                                      style: ButtonStyle(
-
-                                                          backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all(Colors.black),
-                                                          textStyle:
-                                                          MaterialStateProperty
-                                                              .all(TextStyle(
-                                                              fontSize: 18)),
-                                                          shape: MaterialStateProperty
-                                                              .all<RoundedRectangleBorder>(
-                                                              RoundedRectangleBorder(
-
-                                                                borderRadius:
-                                                                BorderRadius.circular(
-                                                                    18.0),
-                                                            //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                              ))),
-                                                      child: Text('Check balance',
-                                                        style: TextStyle(
-                                                            wordSpacing: .5,
-                                                            letterSpacing: .5,
-                                                            color: Colors.white,
-                                                            fontSize: 13,
-                                                            fontWeight: FontWeight.w500),
-                                                      ),
-                                                      onPressed: () {},
-                                                    ),
+                                                    child: ElevatedNeoPop(
+                    color: Colors.orange,
+                    onTapUp: () => HapticFeedback.vibrate(),
+                    onTapDown: () => HapticFeedback.vibrate(),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    label: "Check balance ",
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 13),
+                    onPressed: (){},
+                  ),
                                                   ),
                                                   /*Row(
 
@@ -614,38 +595,17 @@ class _Money_AccountState extends State<Money_Account> {
                                                     height: 15,
                                                   ),
                                                   Container(
-                                                    width:130,
+                                                    width:150,
                                                     height:35,
-                                                    child: ElevatedButton(
-
-                                                      style: ButtonStyle(
-
-                                                          backgroundColor:
-                                                          MaterialStateProperty
-                                                              .all(Colors.black),
-                                                          textStyle:
-                                                          MaterialStateProperty
-                                                              .all(TextStyle(
-                                                              fontSize: 18)),
-                                                          shape: MaterialStateProperty
-                                                              .all<RoundedRectangleBorder>(
-                                                              RoundedRectangleBorder(
-
-                                                                borderRadius:
-                                                                BorderRadius.circular(
-                                                                    18.0),
-                                                                //side: BorderSide(color: Colors.teal, width: 2.0)
-                                                              ))),
-                                                      child: Text('Check balance',
-                                                        style: TextStyle(
-                                                            wordSpacing: .5,
-                                                            letterSpacing: .5,
-                                                            color: Colors.white,
-                                                            fontSize: 13,
-                                                            fontWeight: FontWeight.w500),
-                                                      ),
-                                                      onPressed: () {},
-                                                    ),
+                                                    child: ElevatedNeoPop(
+                    color: Colors.orange,
+                    onTapUp: () => HapticFeedback.vibrate(),
+                    onTapDown: () => HapticFeedback.vibrate(),
+                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    label: "check balance",
+                    textStyle: const TextStyle(color: Colors.black, fontSize: 13),
+                    onPressed: (){},
+                  ),
                                                   ),
                                                   /*Row(
 
